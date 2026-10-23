@@ -1,0 +1,6 @@
+loan_id,student_id,book_id,format,status,start_date,due_date,return_date,fine_rs
+L001,S004,B001,physical,Issued,2026-10-21,2026-10-24,,0
+L002,S004,B005,physical,Issued,2026-10-22,2026-10-25,,0
+L003,S006,B007,physical,Overdue,2026-10-10,2026-10-13,,20
+L004,S007,B003,physical,Issued,2026-10-22,2026-10-25,,0
+L005,S008,B004,ebook,Issued,2026-10-20,2026-10-27,,0
