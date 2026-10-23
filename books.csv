@@ -1,0 +1,31 @@
+book_id,title,author,subject,shelf_location,physical_copies,copies_available,ebook_available
+B001,Data Structures Basics Vol 1 (Synthetic),Author A01,Data Structures,Shelf A-1,2,1,no
+B002,Databases Basics Vol 1 (Synthetic),Author A02,Databases,Shelf B-1,2,2,yes
+B003,Machine Learning Basics Vol 1 (Synthetic),Author A03,Machine Learning,Shelf C-1,1,0,no
+B004,Computer Networks Basics Vol 1 (Synthetic),Author A04,Computer Networks,Shelf D-1,2,2,yes
+B005,Operating Systems Basics Vol 1 (Synthetic),Author A05,Operating Systems,Shelf E-1,2,1,no
+B006,Software Engineering Basics Vol 1 (Synthetic),Author A06,Software Engineering,Shelf F-1,1,1,yes
+B007,Data Structures Basics Vol 2 (Synthetic),Author A07,Data Structures,Shelf A-2,2,1,no
+B008,Databases Basics Vol 2 (Synthetic),Author A08,Databases,Shelf B-2,2,2,yes
+B009,Machine Learning Basics Vol 2 (Synthetic),Author A09,Machine Learning,Shelf C-2,1,1,no
+B010,Computer Networks Basics Vol 2 (Synthetic),Author A10,Computer Networks,Shelf D-2,1,1,yes
+B011,Operating Systems Basics Vol 2 (Synthetic),Author A11,Operating Systems,Shelf E-2,2,2,no
+B012,Software Engineering Basics Vol 2 (Synthetic),Author A12,Software Engineering,Shelf F-2,1,1,yes
+B013,Data Structures Basics Vol 3 (Synthetic),Author A13,Data Structures,Shelf A-3,2,2,no
+B014,Databases Basics Vol 3 (Synthetic),Author A14,Databases,Shelf B-3,2,2,yes
+B015,Machine Learning Basics Vol 3 (Synthetic),Author A15,Machine Learning,Shelf C-3,1,1,no
+B016,Computer Networks Basics Vol 3 (Synthetic),Author A16,Computer Networks,Shelf D-3,2,2,yes
+B017,Operating Systems Basics Vol 3 (Synthetic),Author A17,Operating Systems,Shelf E-3,2,2,no
+B018,Software Engineering Basics Vol 3 (Synthetic),Author A18,Software Engineering,Shelf F-3,1,1,yes
+B019,Data Structures Basics Vol 4 (Synthetic),Author A19,Data Structures,Shelf A-4,2,2,no
+B020,Databases Basics Vol 4 (Synthetic),Author A20,Databases,Shelf B-4,1,1,yes
+B021,Machine Learning Basics Vol 4 (Synthetic),Author A21,Machine Learning,Shelf C-4,1,1,no
+B022,Computer Networks Basics Vol 4 (Synthetic),Author A22,Computer Networks,Shelf D-4,2,2,yes
+B023,Operating Systems Basics Vol 4 (Synthetic),Author A23,Operating Systems,Shelf E-4,2,2,no
+B024,Software Engineering Basics Vol 4 (Synthetic),Author A24,Software Engineering,Shelf F-4,1,1,yes
+B025,Data Structures Basics Vol 5 (Synthetic),Author A25,Data Structures,Shelf A-5,2,2,no
+B026,Databases Basics Vol 5 (Synthetic),Author A26,Databases,Shelf B-5,2,2,yes
+B027,Machine Learning Basics Vol 5 (Synthetic),Author A27,Machine Learning,Shelf C-5,1,1,no
+B028,Computer Networks Basics Vol 5 (Synthetic),Author A28,Computer Networks,Shelf D-5,2,2,yes
+B029,Operating Systems Basics Vol 5 (Synthetic),Author A29,Operating Systems,Shelf E-5,2,2,no
+B030,Software Engineering Basics Vol 5 (Synthetic),Author A30,Software Engineering,Shelf F-5,1,1,yes

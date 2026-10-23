@@ -1,0 +1,8 @@
+case_id,case_type,student_id,book_id,format,setup,expected_result,decided_by
+T1,Normal,S001,B002,physical,"Student has 0 loans, no fine, copy available","Pending pickup then Issued after scan; due in 3 days",System
+T2,Missing information,S002,B020,physical,"Book listed but not found at shelf location","Book marked Missing; pickup released; student offered e-book or another copy","Library staff"
+T3,Duplicate,S003 and S009,B010,physical,"Two students select the last copy","First confirmation wins; second offered e-book or queue",System
+T4a,Unauthorized (limit),S004,B002,physical,"Student already has 2 books issued","Rejected with reason; must return a book first","Library head decides any exception"
+T4b,Unauthorized (fine),S005,B002,physical,"Student has unpaid fine Rs 12","Rejected with reason; clear fine first","Library head decides any exception"
+T5,Failed step,S010,B002,physical,"Pickup not completed within timeout, or SIS down","Copy returns to Available; fallback to counter process","Library staff"
+T6,Fine arithmetic,S006,B007,physical,"Due 2026-10-13, as of 2026-10-23, Rs 2/day after day 3","10 days late x Rs 2 = Rs 20",System
