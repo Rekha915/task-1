@@ -1,0 +1,119 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B.Tech CSE (AI &amp; ML) – proposed curriculum view</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1c2430;--mute:#5d6b7c;--line:#d9dee5;--keep:#2f6f4f;--upd:#a26a00;--red:#a3362b;--add:#1f5fa8;--acc:#1f5fa8}
+@media (prefers-color-scheme:dark){:root{--bg:#141a22;--card:#1c242f;--ink:#e8edf3;--mute:#9aa8b8;--line:#2c3744;--keep:#6cc08f;--upd:#e0b04a;--red:#ee8a7f;--add:#7db4f0;--acc:#7db4f0}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Segoe UI",system-ui,sans-serif;padding:20px;max-width:1000px;margin-inline:auto}
+h1{font-size:1.35rem;margin:0 0 4px}
+p.note{color:var(--mute);margin:0 0 16px;max-width:70ch}
+.tabs{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.tabs button,.chips button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 12px;border-radius:6px;cursor:pointer;font:inherit}
+.tabs button[aria-selected=true],.chips button[aria-pressed=true]{background:var(--acc);color:#fff;border-color:var(--acc)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.wrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;min-width:560px}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line)}
+th{font-weight:600;color:var(--mute);font-size:.85rem}
+tr:last-child td{border-bottom:0}
+.KEEP{color:var(--keep)}.UPDATE{color:var(--upd)}.REDUCE{color:var(--red)}.ADD{color:var(--add)}
+.tag{font-weight:600}
+.cond{font-size:.8rem;color:var(--mute)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.stat b{display:block;font-size:1.4rem}
+.stat span{color:var(--mute);font-size:.85rem}
+label.row{display:flex;gap:8px;align-items:flex-start;padding:8px 12px;border-bottom:1px solid var(--line)}
+section[hidden]{display:none}
+footer{margin-top:20px;color:var(--mute);font-size:.85rem;max-width:75ch}
+</style>
+</head>
+<body>
+<h1>B.Tech CSE (AI &amp; ML), semesters 1–6: current vs proposed</h1>
+<p class="note">Current columns come from the published ICFAI structure (copy the source URL and access date into the README). Everything marked ADD, REDUCE or UPDATE is a <b>student proposal</b>, not an official syllabus revision. Semesters 7–8 are excluded because their credits are unconfirmed.</p>
+ 
+<div class="tabs" role="tablist">
+  <button role="tab" aria-selected="true" data-tab="courses">Course filter</button>
+  <button role="tab" aria-selected="false" data-tab="compare">Current vs proposed</button>
+  <button role="tab" aria-selected="false" data-tab="calc">Credit calculator</button>
+</div>
+ 
+<section id="courses">
+  <div class="chips" id="semChips"></div>
+  <div class="chips" id="statChips"></div>
+  <div class="wrap"><table><thead><tr><th>Sem</th><th>Course</th><th>Credits</th><th>Status</th><th>Note</th></tr></thead><tbody id="courseBody"></tbody></table></div>
+</section>
+ 
+<section id="compare" hidden>
+  <div class="wrap"><table><thead><tr><th>Sem</th><th>Current</th><th>Reduced</th><th>Added</th><th>Proposed</th><th>Unchanged</th></tr></thead><tbody id="cmpBody"></tbody></table></div>
+</section>
+ 
+<section id="calc" hidden>
+  <p class="note">Four reductions may be restricted by regulations or university-mandated electives. Untick one to see the share without it. Its paired addition then becomes an elective or assessment alternative with no credit change.</p>
+  <div class="wrap" id="toggles"></div>
+  <div class="stats" id="stats"></div>
+</section>
+ 
+<footer>Base = 133 credits (sems 1–6: 21+22+24+26+20+20). Changed share = credits removed ÷ 133 = credits added ÷ 133 (balanced). Official curriculum facts and proposed changes are labelled separately.</footer>
+ 
+<script>
+const C=(sem,name,cr,st,id,cond,note)=>({sem,name,cr,st,id,cond:!!cond,note:note||""});
+const courses=[
+C(1,"English Language Skills",3,"KEEP"),C(1,"Engineering Graphics",3,"REDUCE","eg",1,"Fold CAD basics into lab; may be a regulated course"),C(1,"Chemistry",4,"KEEP"),C(1,"Understanding India",0,"KEEP"),C(1,"Physics",4,"KEEP"),C(1,"Linear Algebra and ODE",3,"KEEP"),C(1,"Computer Programming",4,"KEEP"),
+C(1,"Developer Tools & Version Control Lab",3,"ADD","a1",1,"Replaces Engineering Graphics credits. Prereq: none"),
+C(2,"Professional Communication",3,"KEEP"),C(2,"Digital Fabrication",3,"REDUCE","df",0,"Overlaps Basic Electronics/IoT hands-on work"),C(2,"Environmental Sciences",2,"KEEP"),C(2,"Basic Electronics",4,"REDUCE","be",1,"Hardware depth moves to IoT and CPS electives; may be regulated"),C(2,"Higher Calculus",3,"KEEP"),C(2,"Data Structures",4,"KEEP"),C(2,"Introduction to DS and AI",3,"UPDATE",null,0,"Add data-handling practice; avoid repeating ML"),
+C(2,"Software Engineering & Testing",4,"ADD","a2",1,"Pairs with Basic Electronics. Prereq: Computer Programming"),C(2,"Cloud & DevOps Foundations",3,"ADD","a3",0,"Pairs with Digital Fabrication. Prereq: Computer Programming"),
+C(3,"Engineering Economics and Management",3,"REDUCE","eem",1,"May be mandated; else keep as elective alternative"),C(3,"Probability & Statistics",3,"KEEP"),C(3,"Object Oriented Programming Concepts",4,"KEEP"),C(3,"Power Skills – I",1,"KEEP"),C(3,"Introduction to IoT",3,"REDUCE","iot",0,"Hardware content remains in CPS/IoT electives"),C(3,"Database Management Systems",4,"KEEP"),C(3,"Artificial Intelligence",3,"KEEP"),C(3,"Design and Analysis of Algorithms",3,"KEEP"),
+C(3,"Responsible AI & Data Privacy",3,"ADD","a4",1,"Pairs with Engineering Economics. Prereq: Computer Programming"),C(3,"Data Engineering & Pipelines",3,"ADD","a5",0,"Pairs with IoT. Prereq: Computer Programming; corequisite DBMS"),
+C(4,"Digital Humanities Elective",3,"REDUCE","dh",1,"Likely university-mandated; conditional"),C(4,"Power Skills – II",1,"KEEP"),C(4,"Industry Coding Practices",4,"UPDATE",null,0,"Add testing, CI, code review"),C(4,"Operating Systems",4,"KEEP"),C(4,"Computer Organization and Architecture",3,"KEEP"),C(4,"Discrete Mathematics",3,"KEEP"),C(4,"Web Enabled Technologies (WEB 3.0)",4,"UPDATE",null,0,"Add REST APIs and model serving"),C(4,"Machine Learning",4,"KEEP"),
+C(4,"Workflow Automation & Approval-Control Lab",3,"ADD","a6",1,"Task 1 lab. Pairs with Digital Humanities. Prereq: DBMS, OOP, Software Engineering & Testing"),
+C(5,"Constitution of India",0,"KEEP"),C(5,"Elective I",3,"KEEP"),C(5,"Power Skills – III",1,"KEEP"),C(5,"Soft Computing",3,"REDUCE","sc",0,"Fuzzy/GA topics overlap ML and DL"),C(5,"Computer Networks",4,"KEEP"),C(5,"Blockchain Technology",3,"REDUCE","bc",0,"Moves to elective (Blockchain track exists)"),C(5,"Data Wrangling and Visualization",3,"UPDATE",null,0,"Add reproducible pipelines"),C(5,"Computer Vision",3,"KEEP"),
+C(5,"MLOps & Model Deployment",3,"ADD","a7",0,"Pairs with Blockchain. Prereq: Machine Learning, Cloud & DevOps"),C(5,"Data-Centric AI & Model Evaluation",3,"ADD","a8",0,"Pairs with Soft Computing. Prereq: Machine Learning, Probability & Statistics"),
+C(6,"Special Project",3,"UPDATE",null,0,"Require deployment and evaluation"),C(6,"Elective II",3,"KEEP"),C(6,"Power Skills – IV",1,"KEEP"),C(6,"Natural Language Processing",3,"UPDATE",null,0,"Add LLM and retrieval practice"),C(6,"Big Data Systems",3,"UPDATE",null,0,"Add cloud-based practice"),C(6,"Deep Learning",4,"KEEP"),C(6,"Autonomous Vehicles",3,"REDUCE","av",0,"Move to elective/special topic"),
+C(6,"Generative AI & LLM Applications",3,"ADD","a9",0,"Pairs with Autonomous Vehicles. Prereq: NLP, Deep Learning (corequisite)")
+];
+const pair={a1:"eg",a2:"be",a3:"df",a4:"eem",a5:"iot",a6:"dh",a7:"bc",a8:"sc",a9:"av"};
+const BASE=133;
+let semF=0, stF="ALL", cond={eg:1,be:1,eem:1,dh:1};
+const $=s=>document.querySelector(s);
+const on=id=>cond[id]===undefined?true:!!cond[id];
+ 
+function chips(el,items,cur,fn){el.innerHTML="";items.forEach(([v,l])=>{const b=document.createElement("button");b.textContent=l;b.setAttribute("aria-pressed",String(v===cur));b.onclick=()=>fn(v);el.appendChild(b)})}
+function renderCourses(){
+  chips($("#semChips"),[[0,"All semesters"],...[1,2,3,4,5,6].map(n=>[n,"Sem "+n])],semF,v=>{semF=v;renderCourses()});
+  chips($("#statChips"),["ALL","KEEP","UPDATE","REDUCE","ADD"].map(s=>[s,s==="ALL"?"All statuses":s]),stF,v=>{stF=v;renderCourses()});
+  $("#courseBody").innerHTML=courses.filter(c=>(!semF||c.sem===semF)&&(stF==="ALL"||c.st===stF)).map(c=>`<tr><td>${c.sem}</td><td>${c.name}</td><td>${c.cr}</td><td class="tag ${c.st}">${c.st}</td><td class="cond">${c.cond?"Conditional. ":""}${c.note}</td></tr>`).join("");
+}
+function calc(){
+  let red=0,add=0;const per={};
+  for(let s=1;s<=6;s++)per[s]={cur:0,red:0,add:0};
+  courses.forEach(c=>{
+    if(c.st==="ADD"){const ok=on(pair[c.id]);if(ok){add+=c.cr;per[c.sem].add+=c.cr}}
+    else{per[c.sem].cur+=c.cr;if(c.st==="REDUCE"&&on(c.id)){red+=c.cr;per[c.sem].red+=c.cr}}
+  });
+  return{red,add,per};
+}
+function renderCompare(){
+  const{per}=calc();let t=[0,0,0,0,0];
+  $("#cmpBody").innerHTML=Object.entries(per).map(([s,p])=>{const prop=p.cur-p.red+p.add,un=p.cur-p.red;[p.cur,p.red,p.add,prop,un].forEach((v,i)=>t[i]+=v);return`<tr><td>${s}</td><td>${p.cur}</td><td class="REDUCE">−${p.red}</td><td class="ADD">+${p.add}</td><td>${prop}</td><td>${un}</td></tr>`}).join("")+`<tr><th>Total</th><th>${t[0]}</th><th class="REDUCE">−${t[1]}</th><th class="ADD">+${t[2]}</th><th>${t[3]}</th><th>${t[4]}</th></tr>`;
+}
+function renderCalc(){
+  $("#toggles").innerHTML=["eg","be","eem","dh"].map(id=>{const c=courses.find(x=>x.id===id);const a=courses.find(x=>pair[x.id]===id);return`<label class="row"><input type="checkbox" data-id="${id}" ${on(id)?"checked":""}><span>Replace <b>${c.name}</b> (sem ${c.sem}, ${c.cr} cr) with <b>${a.name}</b><br><span class="cond">${c.note}</span></span></label>`}).join("");
+  document.querySelectorAll("#toggles input").forEach(i=>i.onchange=()=>{cond[i.dataset.id]=i.checked?1:0;renderCalc();renderCompare()});
+  const{red,add}=calc();
+  $("#stats").innerHTML=`<div class="stat"><b>${BASE}</b><span>Baseline credits</span></div><div class="stat"><b>${red}</b><span>Credits reduced</span></div><div class="stat"><b>${add}</b><span>Credits added</span></div><div class="stat"><b>${(red/BASE*100).toFixed(1)}%</b><span>Share of baseline changed</span></div><div class="stat"><b>${BASE-red+add}</b><span>Proposed total (balanced: ${red===add?"yes":"no"})</span></div>`;
+}
+document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll(".tabs button").forEach(x=>x.setAttribute("aria-selected",String(x===b)));
+  ["courses","compare","calc"].forEach(id=>$("#"+id).hidden=id!==b.dataset.tab);
+});
+renderCourses();renderCompare();renderCalc();
+</script>
+</body>
+</html>
+ 
