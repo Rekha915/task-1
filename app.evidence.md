@@ -8,7 +8,7 @@ Access date for all web sources: **24 Oct 2026**. Official curriculum facts are 
 |---|---|---|---|---|
 | 1 | NLB SERVICES |  AIML Engineer, India | 30 OCT 2026 | https://www.naukri.com/job-listings-ai-ml-intern-fresher-nlb-services-noida-0-to-1-years-151026016789?src=jobsearchDesk&sid=17928446846843612&xp=1&px=1 |
 | 2 |CIRCULAR CARBON TECHNOLOGIES | Fresher AI ENGINEER |  NOT MENTIONED (QUICK APPLY)2026 | https://www.simplyhired.co.in/search?q=artificial+intelligence+fresher&job=25QBMMOqNpsQ9aWLpU3csy8jdk8aEzfWJEsp1K65C7a5pFRn9DApzg |
-| 3 |ZUNDERDOG  ||AUTOMATION DEVLOPER|| 4 NOV 2026 | https://in.indeed.com/cmp/Zunderdog?campaignid=mobvjcmp&from=mobviewjob&tk=1k5mu6j6fh867800&fromjk=dd02ae13b9c52eec |
+| 3 |ZUNDERDOG  |AUTOMATION DEVLOPER| 4 NOV 2026 | https://in.indeed.com/cmp/Zunderdog?campaignid=mobvjcmp&from=mobviewjob&tk=1k5mu6j6fh867800&fromjk=dd02ae13b9c52eec |
 | 4  | QUICKHYRE | Associate AI | listed 8 Jul to 5 AuNOV 2026 |https://internshala.com/job/detail/fresher-remote-artificial-intelligence-ai-associate-job-at-quickhyre1791482272  |
  
 Notes: Posting 1 names both a Pune and a Hyderabad office on the same page. Posting 4 is from an aggregator, not the employer, so it is supporting evidence only. Postings 1–3 are the three counted for the task.
